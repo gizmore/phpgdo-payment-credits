@@ -15,7 +15,7 @@ use GDO\Payment\Module_Payment;
  */
 final class Pay extends Method
 {
-	public function showInSitemap() { return false; }
+	public function showInSitemap() : bool { return false; }
 	public function isAlwaysTransactional() { return true; }
 	
 	public function execute()
