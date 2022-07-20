@@ -40,7 +40,7 @@ final class GDO_CreditsOrder extends GDO implements Orderable
 		$oldCredits = $user->getCredits();
 		$user->increase('user_credits', $credits);
 		$newCredits = $user->getCredits();
-		return GDT_Success::responseWith('msg_credits_purchased', [$credits, $oldCredits, $newCredits]);
+		return GDT_Success::make()->text('msg_credits_purchased', [$credits, $oldCredits, $newCredits]);
 	}
 	
 	###########
@@ -61,7 +61,7 @@ final class GDO_CreditsOrder extends GDO implements Orderable
 	/**
 	 * @return GDO_User
 	 */
-	public function getUser() { return $this->getValue('co_user'); }
+	public function getUser() { return $this->gdoValue('co_user'); }
 	public function getUserID() { return $this->gdoVar('co_user'); }
 	public function getCredits() { return $this->gdoVar('co_credits'); }
 	
