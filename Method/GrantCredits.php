@@ -16,11 +16,11 @@ final class GrantCredits extends MethodForm
 	
 	public function createForm(GDT_Form $form) : void
 	{
-		$form->addFields(array(
+		$form->addFields(
 			GDT_User::make('user')->withCompletion()->notNull(),
 			GDT_Credits::make('credits')->notNull(),
 			GDT_AntiCSRF::make(),
-		));
+		);
 		$form->actions()->addField(GDT_Submit::make());
 	}
 	

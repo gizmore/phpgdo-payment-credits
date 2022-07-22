@@ -26,10 +26,10 @@ final class OrderCredits extends Payment_Order
 	{
 		$module = Module_PaymentCredits::instance();
 		$gdo = GDO_CreditsOrder::table();
-		$form->addFields(array(
+		$form->addFields(
 			$gdo->gdoColumn('co_credits')->initial($module->cfgMinPurchaseCredits()),
 			GDT_AntiCSRF::make(),
-		));
+		);
 		$form->actions()->addField(GDT_Submit::make());
 	}
 	
