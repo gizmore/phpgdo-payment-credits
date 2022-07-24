@@ -7,7 +7,7 @@ return array(
 'cfg_paycreds_min_purchase' => 'Mindestanzahl Credits für Bestellung',
 'cfg_paycreds_rate' => 'Wert eines Credit',
 'link_credits' => 'Credits (%s)',
-'ft_paymentcredits_ordercredits' => 'Credits erwerben',
+'mt_paymentcredits_ordercredits' => 'Credits erwerben',
 'card_title_credits_order' => '%s Credits kaufen',
 'card_title_credits_price' => 'Erwerben Sie %s Credits für %s.',
 'card_info_credits_price' => 'Erhöhen Sie Ihre Credits um %s.<br/>Dies kostet %s und lässt sich nicht rückgängig machen.',
@@ -18,7 +18,7 @@ return array(
 
 ### Grant
 'link_grant_credits' => 'Credits gutschreiben',
-'ft_paymentcredits_grantcredits' => 'Credits gutschreiben',
+'mt_paymentcredits_grantcredits' => 'Credits gutschreiben',
 'msg_credits_granted' => 'Sie haben %s Credits dem Nutzer %s gutgeschrieben. Der Nutzer hat nun %s Credits.',
 'mail_subj_credits_granted' => 'Credits Gutschrift',
 'mail_body_credits_granted' =>

@@ -16,10 +16,10 @@ use GDO\User\GDO_User;
 /**
  * Pay with own credits.
  * Buy own credits.
+ * 
  * @author gizmore
- * @license MIT
- * @version 6.10
- * @since 4.0
+ * @version 7.0.1
+ * @since 4.0.0
  */
 final class Module_PaymentCredits extends PaymentModule
 {
@@ -45,20 +45,30 @@ final class Module_PaymentCredits extends PaymentModule
 	##############
 	public function getConfig() : array
 	{
-		return array_merge(parent::getConfig(), array(
+		return array_merge(parent::getConfig(), [
 		    GDT_Checkbox::make('paycreds_guests')->initial('0'),
-		    GDT_Checkbox::make('paycreds_right_bar')->initial('1'),
+		    GDT_Checkbox::make('hook_sidebar')->initial('1'),
 		    GDT_Decimal::make('paycreds_min_purchase')->digits(6, 2)->initial('5.00'),
 			GDT_Decimal::make('paycreds_rate')->digits(1, 4)->initial('0.01'),
-		));
+		]);
 	}
 	public function cfgAllowGuests() { return $this->getConfigValue('paycreds_guests'); }
-	public function cfgRightBar() { return $this->getConfigValue('paycreds_right_bar'); }
+	public function cfgRightBar() { return $this->getConfigValue('hook_sidebar'); }
 	public function cfgMinPurchasePrice() { return $this->getConfigValue('paycreds_min_purchase'); }
 	public function cfgMinPurchaseCredits() { return $this->priceToCredits($this->cfgMinPurchasePrice()); }
 	public function cfgConversionRate() { return $this->getConfigValue('paycreds_rate'); }
 	public function cfgConversionRateToCurrency() { return $this->cfgConversionRate(); }
 	public function cfgConversionRateToCredits() { return 1 / $this->cfgConversionRate(); }
+	
+	################
+	### Settings ###
+	################
+	public function getUserConfig() : array
+	{
+		return [
+			GDT_Credits::make('credits')->initial('0'),
+		];
+	}
 	
 	###############
 	### Convert ###
@@ -73,7 +83,7 @@ final class Module_PaymentCredits extends PaymentModule
 	###############
 	public function onInitSidebar() : void
 	{
-// 	    if ($this->cfgRightBar())
+	    if ($this->cfgRightBar())
 	    {
 	        $user = GDO_User::current();
 	        $navbar = GDT_Page::$INSTANCE->rightBar();
@@ -99,4 +109,5 @@ final class Module_PaymentCredits extends PaymentModule
 		$price = round(($this->cfgFeeBuy() + 1.00) * floatval($price), 2);
 		return $price;
 	}
+	
 }

@@ -6,12 +6,14 @@ use GDO\Payment\GDO_Order;
 use GDO\PaymentCredits\Module_PaymentCredits;
 use GDO\User\GDO_User;
 use GDO\Util\Common;
-use GDO\Core\Website;
 use GDO\Payment\Module_Payment;
+
 /**
- * Pay with own gwf credits.
+ * Pay with own gdo credits.
+ * 
  * @author gizmore
- * @version 5.0
+ * @version 7.0.1
+ * @since 5.0
  */
 final class Pay extends Method
 {
@@ -28,7 +30,7 @@ final class Pay extends Method
 			 ($order->isPaid()) || (!$order->isCreator($user)) )
 		{
 			return $this->error('err_order')->addField(
-				$order ? $order->redirectFailure() : Website::redirect(href(GDO_MODULE, GDO_METHOD)));
+				$order ? $order->redirectFailure() : $this->redirect(href(GDO_MODULE, GDO_METHOD)));
 		}
 		
 		# Pay?

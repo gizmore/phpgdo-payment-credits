@@ -7,7 +7,7 @@ return array(
 'cfg_paycreds_min_purchase' => 'Minimum order value for credits',
 'cfg_paycreds_rate' => 'Value of one credit',
 'link_credits' => 'Credits (%s)',
-'ft_paymentcredits_ordercredits' => 'Purchase Credits',
+'mt_paymentcredits_ordercredits' => 'Purchase Credits',
 'card_title_credits_order' => 'Purchase %s Credits',
 'card_title_credits_price' => 'Purchase %s Credits for %s.',
 'card_info_credits_price' => 'Increase your credits account by %s.<br/>This cost %s and is not reversible.',
@@ -18,7 +18,7 @@ return array(
 
 ### Grant
 'link_grant_credits' => 'Grant Credits',
-'ft_paymentcredits_grantcredits' => 'Grant Credits',
+'mt_paymentcredits_grantcredits' => 'Grant Credits',
 'msg_credits_granted' => 'You have granted %s credits to %s. The user has %s credits now.',
 'mail_subj_credits_granted' => 'Credits granted',
 'mail_body_credits_granted' =>

@@ -7,7 +7,7 @@ return array(
 'cfg_paycreds_min_purchase' => 'Credito minimo per ordinazione',
 'cfg_paycreds_rate' => 'Walore di un credito',
 'link_credits' => 'Credito (%s)',
-'ft_paymentcredits_ordercredits' => 'Acquistare credito',
+'mt_paymentcredits_ordercredits' => 'Acquistare credito',
 'card_title_credits_order' => '%s acquistato credito',
 'card_title_credits_price' => 'Acquisti %s credito per %s.',
 'card_info_credits_price' => 'Aumenti il suo credito di %s.<br/>Questo costa %s ed non sara piu revocabile.',
@@ -18,7 +18,7 @@ return array(
 
 ### Grant
 'link_grant_credits' => 'Credito accreditato',
-'ft_paymentcredits_grantcredits' => 'Credito accreditato',
+'mt_paymentcredits_grantcredits' => 'Credito accreditato',
 'msg_credits_granted' => 'Avete accreditato %s credito al utente %s. L´utente ha ora %s credito.',
 'mail_subj_credits_granted' => 'Accreditato',
 'mail_body_credits_granted' => '
