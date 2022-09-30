@@ -89,12 +89,12 @@ final class Module_PaymentCredits extends PaymentModule
 	        $navbar = GDT_Page::$INSTANCE->rightBar();
 	        if ($user->isAuthenticated())
 	        {
-	            $link = GDT_Link::make()->label('link_credits', [$user->getCredits()])->href(href('PaymentCredits', 'OrderCredits'));
+	            $link = GDT_Link::make()->text('link_credits', [$user->getCredits()])->href(href('PaymentCredits', 'OrderCredits'));
 	            $navbar->addField($link);
 	        }
 	        if ($user->isStaff())
 	        {
-	            $link = GDT_Link::make()->label('link_grant_credits')->href(href('PaymentCredits', 'GrantCredits'));
+	            $link = GDT_Link::make()->text('link_grant_credits')->href(href('PaymentCredits', 'GrantCredits'));
 	            $navbar->addField($link);
 	        }
 	    }
