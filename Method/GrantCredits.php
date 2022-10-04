@@ -36,12 +36,9 @@ final class GrantCredits extends MethodForm
 	{
 		$user = $this->getUser();
 		$credits = $form->getFormVar('credits');
-// 		$creditsBefore = $user->getCredits();
-		$user->increase('user_credits', $credits);
+		$user->increaseSetting('PaymentCredits', 'credits', $credits);
 		$creditsAfter = $user->getCredits();
-		
 		$this->sendMail($user, $credits, $creditsAfter);
-		
 		return $this->message('msg_credits_granted', [$credits, $user->renderUserName(), $creditsAfter]);
 	}
 	

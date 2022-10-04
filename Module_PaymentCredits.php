@@ -86,15 +86,16 @@ final class Module_PaymentCredits extends PaymentModule
 	    if ($this->cfgRightBar())
 	    {
 	        $user = GDO_User::current();
-	        $navbar = GDT_Page::$INSTANCE->rightBar();
 	        if ($user->isAuthenticated())
 	        {
+		        $navbar = GDT_Page::$INSTANCE->rightBar()->getField('menu_payment');
 	            $link = GDT_Link::make()->text('link_credits', [$user->getCredits()])->href(href('PaymentCredits', 'OrderCredits'));
 	            $navbar->addField($link);
 	        }
 	        if ($user->isStaff())
 	        {
-	            $link = GDT_Link::make()->text('link_grant_credits')->href(href('PaymentCredits', 'GrantCredits'));
+	        	$navbar = GDT_Page::$INSTANCE->rightBar()->getField('menu_admin');
+	        	$link = GDT_Link::make()->text('link_grant_credits')->href(href('PaymentCredits', 'GrantCredits'));
 	            $navbar->addField($link);
 	        }
 	    }
