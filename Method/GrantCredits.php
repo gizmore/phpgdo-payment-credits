@@ -12,6 +12,11 @@ use GDO\Mail\Mail;
 
 final class GrantCredits extends MethodForm
 {
+	public function getMethodTitle(): string
+	{
+		return t('payment');
+	}
+	
 	public function getPermission() : ?string { return 'staff'; }
 	
 	public function createForm(GDT_Form $form) : void

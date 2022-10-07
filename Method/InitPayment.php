@@ -12,6 +12,11 @@ use GDO\Payment\GDO_Order;
  */
 final class InitPayment extends MethodPayment
 {
+	public function getMethodTitle(): string
+	{
+		return t('payment');
+	}
+	
 	public function execute()
 	{
 		if (!($order = $this->getOrderPersisted()))
