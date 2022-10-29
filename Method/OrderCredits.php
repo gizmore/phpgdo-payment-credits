@@ -7,6 +7,7 @@ use GDO\Payment\Payment_Order;
 use GDO\PaymentCredits\GDO_CreditsOrder;
 use GDO\PaymentCredits\Module_PaymentCredits;
 use GDO\User\GDO_User;
+use GDO\Payment\Orderable;
 
 /**
  * Order more gwf credits.
@@ -14,7 +15,7 @@ use GDO\User\GDO_User;
  */
 final class OrderCredits extends Payment_Order
 {
-	public function getOrderable()
+	public function getOrderable(): Orderable
 	{
 		return GDO_CreditsOrder::blank(array(
 			'co_user' => GDO_User::current()->getID(),
@@ -31,6 +32,10 @@ final class OrderCredits extends Payment_Order
 			GDT_AntiCSRF::make(),
 		);
 		$form->actions()->addField(GDT_Submit::make());
+	}
+	
+	public function onCancelOrder(): void
+	{
 	}
 	
 }

@@ -25,9 +25,8 @@ final class GDO_CreditsOrder extends GDO implements Orderable
 	public function getOrderTitle($iso) { return t('card_title_credits_order', [$this->getCredits()]); }
 	public function getOrderPrice()
 	{
-// 		$price = $this->paymentCredits()->creditsToPrice($this->getCredits());
-		
-		return $this->paymentCredits()->creditsToPrice($this->getCredits());
+		$price = $this->paymentCredits()->creditsToPrice($this->getCredits());
+		return $price;
 	}
 	
 	public function displayPrice() { return $this->paymentCredits()->displayPrice($this->getOrderPrice()); }
