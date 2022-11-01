@@ -1,5 +1,5 @@
 <?php
-namespace a;
+namespace GDO\PaymentCredits\Method;
 
 use GDO\Core\Method;
 use GDO\Admin\MethodAdmin;
