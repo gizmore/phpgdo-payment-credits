@@ -17,4 +17,9 @@ final class Admin extends Method
 		);
 	}
 	
+	public function getMethodTitle(): string
+	{
+		return t('admin');
+	}
+	
 }
