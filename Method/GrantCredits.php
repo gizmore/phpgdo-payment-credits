@@ -1,25 +1,26 @@
 <?php
 namespace GDO\PaymentCredits\Method;
 
-use GDO\Form\GDT_Form;
-use GDO\Form\MethodForm;
-use GDO\User\GDT_User;
-use GDO\PaymentCredits\GDT_Credits;
 use GDO\Form\GDT_AntiCSRF;
+use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
-use GDO\User\GDO_User;
+use GDO\Form\MethodForm;
 use GDO\Mail\Mail;
+use GDO\PaymentCredits\GDT_Credits;
+use GDO\User\GDO_User;
+use GDO\User\GDT_User;
 
 final class GrantCredits extends MethodForm
 {
+
 	public function getMethodTitle(): string
 	{
 		return t('payment');
 	}
-	
-	public function getPermission() : ?string { return 'staff'; }
-	
-	public function createForm(GDT_Form $form) : void
+
+	public function getPermission(): ?string { return 'staff'; }
+
+	public function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
 			GDT_User::make('user')->withCompletion()->notNull(),
@@ -28,15 +29,7 @@ final class GrantCredits extends MethodForm
 		);
 		$form->actions()->addField(GDT_Submit::make());
 	}
-	
-	/**
-	 * @return GDO_User
-	 */
-	public function getUser()
-	{
-		return $this->getForm()->getFormValue('user');
-	}
-	
+
 	public function formValidated(GDT_Form $form)
 	{
 		$user = $this->getUser();
@@ -46,19 +39,27 @@ final class GrantCredits extends MethodForm
 		$this->sendMail($user, $credits, $creditsAfter);
 		return $this->message('msg_credits_granted', [$credits, $user->renderUserName(), $creditsAfter]);
 	}
-	
+
+	/**
+	 * @return GDO_User
+	 */
+	public function getUser()
+	{
+		return $this->getForm()->getFormValue('user');
+	}
+
 	private function sendMail(GDO_User $user, $credits, $creditsAfter)
 	{
 		$mail = Mail::botMail();
 		$mail->setSubject(tusr($user, 'mail_subj_credits_granted'));
-		$tVars = array(
+		$tVars = [
 			$user->renderUserName(),
 			$credits,
 			sitename(),
 			$creditsAfter,
-		);
+		];
 		$mail->setBody(tusr($user, 'mail_body_credits_granted', $tVars));
 		$mail->sendToUser($user);
 	}
-	
+
 }
