@@ -2,6 +2,7 @@
 namespace GDO\PaymentCredits\Method;
 
 use GDO\Admin\MethodAdmin;
+use GDO\Core\GDT;
 use GDO\Core\Method;
 use GDO\UI\GDT_Dashboard;
 use GDO\UI\GDT_Link;
@@ -11,7 +12,7 @@ final class Admin extends Method
 
 	use MethodAdmin;
 
-	public function execute()
+	public function execute(): GDT
 	{
 		return GDT_Dashboard::makeWith(
 			GDT_Link::make()->href(href('PaymentCredits', 'GrantCredits')),

@@ -1,6 +1,7 @@
 <?php
 namespace GDO\PaymentCredits\Method;
 
+use GDO\Core\GDT;
 use GDO\Core\Method;
 use GDO\Payment\GDO_Order;
 use GDO\Payment\Module_Payment;
@@ -27,7 +28,7 @@ final class Pay extends Method
 
 	public function isAlwaysTransactional(): bool { return true; }
 
-	public function execute()
+	public function execute(): GDT
 	{
 		$user = GDO_User::current();
 		$module = Module_PaymentCredits::instance();

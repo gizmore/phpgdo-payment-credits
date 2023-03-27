@@ -1,6 +1,7 @@
 <?php
 namespace GDO\PaymentCredits\Method;
 
+use GDO\Core\GDT;
 use GDO\Payment\GDO_Order;
 use GDO\Payment\MethodPayment;
 
@@ -19,7 +20,7 @@ final class InitPayment extends MethodPayment
 		return t('payment');
 	}
 
-	public function execute()
+	public function execute(): GDT
 	{
 		if (!($order = $this->getOrderPersisted()))
 		{

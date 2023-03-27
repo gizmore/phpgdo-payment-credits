@@ -1,6 +1,7 @@
 <?php
 namespace GDO\PaymentCredits\Method;
 
+use GDO\Core\GDT;
 use GDO\Form\GDT_AntiCSRF;
 use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
@@ -30,7 +31,7 @@ final class GrantCredits extends MethodForm
 		$form->actions()->addField(GDT_Submit::make());
 	}
 
-	public function formValidated(GDT_Form $form)
+	public function formValidated(GDT_Form $form): GDT
 	{
 		$user = $this->getUser();
 		$credits = $form->getFormVar('credits');
