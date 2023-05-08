@@ -21,7 +21,7 @@ final class GrantCredits extends MethodForm
 
 	public function getPermission(): ?string { return 'staff'; }
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$form->addFields(
 			GDT_User::make('user')->withCompletion()->notNull(),

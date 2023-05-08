@@ -26,7 +26,7 @@ final class OrderCredits extends Payment_Order
 		]);
 	}
 
-	public function createForm(GDT_Form $form): void
+	protected function createForm(GDT_Form $form): void
 	{
 		$module = Module_PaymentCredits::instance();
 		$gdo = GDO_CreditsOrder::table();
