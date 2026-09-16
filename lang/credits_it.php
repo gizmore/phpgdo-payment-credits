@@ -11,6 +11,7 @@ return [
 	'card_title_credits_order' => '%s acquistato credito',
 	'card_title_credits_price' => 'Acquisti %s credito per %s.',
 	'card_info_credits_price' => 'Aumenti il suo credito di %s.<br/>Questo costa %s ed non sara piu revocabile.',
+	'info_credits_exchange_rate' => 'Tasso di cambio attuale: 1 credito = %s.',
 	'buy_paymentcredits' => '[%s] Credito',
 	'btn_pay_credits' => 'Pagare con %s credito di %s',
 	'msg_credits_purchased' => 'Avete acquistato <b>%s</b> credito ed il vostro credito sale da %s a <b>%s</b>.',

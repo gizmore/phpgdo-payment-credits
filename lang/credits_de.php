@@ -11,6 +11,7 @@ return [
 	'card_title_credits_order' => '%s Credits kaufen',
 	'card_title_credits_price' => 'Erwerben Sie %s Credits für %s.',
 	'card_info_credits_price' => 'Erhöhen Sie Ihre Credits um %s.<br/>Dies kostet %s und lässt sich nicht rückgängig machen.',
+	'info_credits_exchange_rate' => 'Aktueller Umrechnungskurs: 1 Credit = %s.',
 	'buy_paymentcredits' => '[%s] Credite',
 	'btn_pay_credits' => 'Zahlen mit %s von %s Crediten',
 	'msg_credits_purchased' => 'Sie haben <b>%s</b> Credite erworben und ihr Guthaben stieg von %s auf <b>%s</b> Credits.',

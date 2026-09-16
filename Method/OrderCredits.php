@@ -8,6 +8,7 @@ use GDO\Payment\Orderable;
 use GDO\Payment\Payment_Order;
 use GDO\PaymentCredits\GDO_CreditsOrder;
 use GDO\PaymentCredits\Module_PaymentCredits;
+use GDO\UI\GDT_Paragraph;
 use GDO\User\GDO_User;
 
 /**
@@ -31,6 +32,9 @@ final class OrderCredits extends Payment_Order
 		$module = Module_PaymentCredits::instance();
 		$gdo = GDO_CreditsOrder::table();
 		$form->addFields(
+			GDT_Paragraph::make()->text('info_credits_exchange_rate', [
+				$module->displayPrice($module->cfgConversionRate()),
+			]),
 			$gdo->gdoColumn('co_credits')->initial($module->cfgMinPurchaseCredits()),
 			GDT_AntiCSRF::make(),
 		);
