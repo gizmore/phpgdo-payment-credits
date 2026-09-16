@@ -70,7 +70,7 @@ final class Module_PaymentCredits extends PaymentModule
 			$user = GDO_User::current();
 			if ($user->isAuthenticated())
 			{
-				$navbar = GDT_Page::$INSTANCE->rightBar()->getField('menu_payment');
+					$navbar = GDT_Page::$INSTANCE->rightBar()->getField('menu_payment') ?: GDT_Page::$INSTANCE->rightBar();
 				$link = GDT_Link::make()->text('link_credits', [$user->getCredits()])->href(href('PaymentCredits', 'OrderCredits'));
 				$navbar->addField($link);
 			}
